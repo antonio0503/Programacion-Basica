@@ -7,7 +7,8 @@ using namespace std;
 string nombreEmpleado;
 int edadEmpleado, tipoEmpleado;
 char sexoEmpleado;
-double salarioEmpleado, horasEmpleadoPlantaDiariaLV, horasEmpleadoPlantaS, horasEmpleadoPlantaMesLV, horasEmpleadoPlantaSabadoMes, horasEmpleadoPlantaMes, sueldoEmpleadoPlantaHora, sueldoEmpleadoPlantaS, sueldoDiarioLV, sueldoEmpleadoPlantaMinuto, sueldoEmpleadoPlantaSegundo, sueldoEmpleadoPlantaSemanaLV, sueldoEmpleadoPlantaSemanaS, sueldoEmpleadoPlantaQuincenal;
+double salarioEmpleado, sueldoEmpleadoPlantaHora, sueldoEmpleadoPlantaS, sueldoDiarioLV, sueldoEmpleadoPlantaMinuto, sueldoEmpleadoPlantaSegundo, sueldoEmpleadoPlantaSemanaLV, sueldoEmpleadoPlantaSemanaS, sueldoEmpleadoPlantaQuincenal;
+double  horasEmpleadoPlantaDiariaLV = 9.5, horasEmpleadoPlantaS = 6, horasEmpleadoPlantaSemanalLV, horasEmpleadoPlantaMensualS , horasEmpleadoPlantaSemanalLS, horasEmpleadoPlantaMensualTotal;
 
 int main()
 {
@@ -61,19 +62,23 @@ int main()
 
     if (tipoEmpleado == 1)
     {
-        horasEmpleadoPlantaDiariaLV = 9.5;
-        horasEmpleadoPlantaS = 6;
-        horasEmpleadoPlantaMesLV = horasEmpleadoPlantaDiariaLV * 4;
-        horasEmpleadoPlantaSabadoMes = horasEmpleadoPlantaS * 4;
-        horasEmpleadoPlantaMes = horasEmpleadoPlantaMesLV + horasEmpleadoPlantaSabadoMes;
-        sueldoEmpleadoPlantaHora = salarioEmpleado / horasEmpleadoPlantaMes;
-        sueldoEmpleadoPlantaS = horasEmpleadoPlantaS * sueldoEmpleadoPlantaHora;
-        sueldoDiarioLV = horasEmpleadoPlantaDiariaLV * sueldoEmpleadoPlantaHora;
+        // Calcular horas empleado de planta
+        horasEmpleadoPlantaSemanalLV = horasEmpleadoPlantaDiariaLV * 5; // Horas de lunes a viernes son 47.5
+        horasEmpleadoPlantaMensualS = horasEmpleadoPlantaS * 4; // Horas de sabado al mes son 24
+        horasEmpleadoPlantaSemanalLS = horasEmpleadoPlantaSemanalLV + horasEmpleadoPlantaS; // Horas de lunes a sabado son 53.5
+        horasEmpleadoPlantaMensualTotal = horasEmpleadoPlantaSemanalLS * 4; // Horas totales al mes son 214
+
+        // Calcular sueldo empleado de planta
+        sueldoEmpleadoPlantaHora = salarioEmpleado / horasEmpleadoPlantaMensualTotal;
+        sueldoEmpleadoPlantaS = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaS;
+        sueldoDiarioLV = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaDiariaLV;
         sueldoEmpleadoPlantaMinuto = sueldoEmpleadoPlantaHora / 60;
         sueldoEmpleadoPlantaSegundo = sueldoEmpleadoPlantaMinuto / 60;
-        sueldoEmpleadoPlantaSemanaLV = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaDiariaLV;
-        sueldoEmpleadoPlantaSemanaS = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaS;
-        sueldoEmpleadoPlantaQuincenal = horasEmpleadoPlantaMes / 2 * sueldoEmpleadoPlantaHora;
+        sueldoEmpleadoPlantaSemanaLV = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaSemanalLV;
+        sueldoEmpleadoPlantaSemanaS = sueldoEmpleadoPlantaHora * horasEmpleadoPlantaSemanalLS;
+        sueldoEmpleadoPlantaQuincenal = horasEmpleadoPlantaMensualTotal / 2 * sueldoEmpleadoPlantaHora;
+
+        // Imprimir resultados
         cout <<  nombreEmpleado << " tiene " << edadEmpleado << " años, es de sexo " << sexoEmpleado << " y su salario es de: " << salarioEmpleado << endl;
         cout << "El sueldo diario del empleado de planta es:" << sueldoDiarioLV << endl;
         cout << "El sueldo de los sabados del empleado de planta es: " << sueldoEmpleadoPlantaS << endl;
