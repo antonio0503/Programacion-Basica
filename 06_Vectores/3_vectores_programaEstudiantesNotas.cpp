@@ -89,5 +89,5 @@ cout<<"desea ingresar otro estudiante? (s/n): "<<endl;
 cin >> respuesta;
 }while ( respuesta == 's' || respuesta == 'S');
 i++;
-}
+} 
        

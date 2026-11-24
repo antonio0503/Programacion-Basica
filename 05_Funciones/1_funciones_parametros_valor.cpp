@@ -21,4 +21,4 @@ int main() {
 	mostrarResultado(total);
 
 	return 0;
-}
+} 

@@ -26,4 +26,4 @@ int main() {
 	mostrarSuma(4, 6);
 	indicarParidad(7);
 	return 0;
-}
+} 

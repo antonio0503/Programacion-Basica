@@ -1399,4 +1399,4 @@ bool NoExiste(string nom){
 	}	
 	
 	return true;
-}
+} 
