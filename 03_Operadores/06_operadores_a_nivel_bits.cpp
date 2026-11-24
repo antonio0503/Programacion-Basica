@@ -15,4 +15,4 @@ int main() {
     cout << "a >> 1 = " << (a >> 1) << endl; // 010
 
     return 0;
-}
+} 

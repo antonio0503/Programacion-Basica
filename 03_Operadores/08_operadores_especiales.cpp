@@ -26,4 +26,4 @@ int main() {
 			  << ", valor mediante puntero: " << *puntero << "\n";
 
 	return 0;
-}
+} 

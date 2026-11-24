@@ -24,4 +24,4 @@ int main()
     cout << "x %= 3 => " << x << endl;
 
     return 0;
-}
+} 

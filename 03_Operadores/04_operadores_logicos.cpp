@@ -14,4 +14,4 @@ int main()
     cout << "!a: " << (!a) << endl;         // NOT lógico
 
     return 0;
-}
+} 

@@ -31,4 +31,4 @@ int main()
     cout << "Nombre del estudiante: " << nombreEstudiante << endl;
 
     return 0;
-}
+} 
