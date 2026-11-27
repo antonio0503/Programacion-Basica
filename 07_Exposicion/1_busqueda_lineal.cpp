@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     // Declaramos un arreglo de 7 numeros enteros.
-    int numeros[7] = {7, 4, 5, 2, 1, 3, 6};
+    int numeros[7] = {10, 5, 15, 25, 30, 20, 35};
 
     // Variable que almacena el numero buscado.
     int buscar;
@@ -20,6 +20,9 @@ int main()
     {
         // Reiniciamos la posicion en cada busqueda.
         int posicion = -1;
+
+        // Reiniciamos el contador de ciclos.
+        int ciclos = 0;
 
         cout << "\nIngrese el numero que desea buscar: ";
         cin >> buscar;
@@ -43,6 +46,9 @@ int main()
         // Recorremos el arreglo elemento por elemento.
         for (int i = 0; i < 7; i++)
         {
+            // Incrementamos el contador en cada iteracion.
+            ciclos++;
+
             // Comparamos el elemento actual con el numero buscado.
             if (numeros[i] == buscar)
             {
@@ -64,6 +70,9 @@ int main()
         {
             cout << "Numero no encontrado." << endl;
         }
+
+        // Mostramos la cantidad de ciclos realizados.
+        cout << "Ciclos realizados: " << ciclos << endl;
 
         // Preguntamos si desea realizar otra busqueda.
         cout << "\nDesea realizar otra busqueda? (S/N): ";

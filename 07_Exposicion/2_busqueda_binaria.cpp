@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-    // Declaramos un arreglo de 15 numeros ordenados.
-    int numeros[15] = {5, 10, 15, 17, 19, 20, 25, 30, 35, 40, 43, 50, 51, 52, 60 };
+    // Declaramos un arreglo de 7 numeros ordenados.
+    int numeros[7] = {5, 10, 15, 20, 25, 30, 35};
 
     // Variable que almacena el numero buscado.
     int buscar;
@@ -22,13 +22,16 @@ int main()
         int inicio = 0;
 
         // Establecemos el ultimo indice del arreglo.
-        int fin = 14;
+        int fin = 6;
 
         // Variable que almacena el indice central.
         int medio;
 
         // Reiniciamos la posicion en cada busqueda.
         int posicion = -1;
+
+        // Reiniciamos el contador de ciclos.
+        int ciclos = 0;
 
         cout << "\nIngrese el numero que desea buscar: ";
         cin >> buscar;
@@ -52,6 +55,9 @@ int main()
         // Repetimos mientras exista un intervalo valido.
         while (inicio <= fin)
         {
+            // Incrementamos el contador en cada iteracion.
+            ciclos++;
+
             // Calculamos el indice central.
             medio = (inicio + fin) / 2;
 
@@ -86,6 +92,9 @@ int main()
         {
             cout << "Numero no encontrado." << endl;
         }
+
+        // Mostramos la cantidad de ciclos realizados.
+        cout << "Ciclos realizados: " << ciclos << endl;
 
         // Preguntamos si desea realizar otra busqueda.
         cout << "\nDesea realizar otra busqueda? (S/N): ";
